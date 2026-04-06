@@ -1,0 +1,3 @@
+Label,# Samples,Average(MS),RPS(Sec),Received KB/sec,Sent KB/sec,Avg. Bytes,Run time(Sec),Error %
+RMP_Login,2708,921,3.01,2.76,1.21,939.8,900,1.477%
+TOTAL,2708,921,3.01,2.76,1.21,939.8,900,1.477%

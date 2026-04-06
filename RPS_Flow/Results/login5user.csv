@@ -1,0 +1,3 @@
+Label,# Samples,Average(Ms),RunTime(Sec),RPS(Sec),Received KB/sec,Sent KB/sec,Avg. Bytes,Error %
+Login,2700,739,900,3,2.77,1.21,945,0.000%
+TOTAL,2700,739,900,3,2.77,1.21,945,0.000%

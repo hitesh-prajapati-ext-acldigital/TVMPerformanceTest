@@ -1,0 +1,7 @@
+JMeter Summary Report - Top 5 Slowest APIs
+Label,Average Response Time (ms)
+Device_Management,15454.00
+Scheduling_Page,8376.00
+Get_User_info,1952.00
+Login,1536.00
+
