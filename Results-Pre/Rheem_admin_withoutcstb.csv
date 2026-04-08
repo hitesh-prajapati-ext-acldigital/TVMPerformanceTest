@@ -1,0 +1,28 @@
+Label,#Samples,Average,Min,Max,Error %,Std. Dev.,Throughput,Received KB/sec,Sent KB/sec
+Rheem_rm_loginMetaData,1,1810,1810,1810,0.0,0.0,0.5525,4.0622,0.1942
+RMP_Login,1,791,791,791,0.0,0.0,1.2642,1.1445,0.5099
+Get_User_info,1,1233,1233,1233,0.0,0.0,0.8110,13.0747,0.5766
+Rheem_getAppPreferences,1,3065,3065,3065,0.0,0.0,0.3263,0.4569,0.2517
+Login_Cont,1,6899,6899,6899,0.0,0.0,0.1448,3.7318,0.3239
+Rheem_rcp?id=rmp.filters,1,810,810,810,0.0,0.0,1.2346,1.0802,0.8705
+Rheem_rm_alert_notification,1,1186,1186,1186,0.0,0.0,0.8432,0.5097,0.6390
+Rheem_rm_devicesInstalled,1,2184,2184,2184,0.0,0.0,0.4579,0.4695,0.3680
+Rheem_rm_devicetypeCount{All time},1,2195,2195,2195,0.0,0.0,0.4556,0.3141,0.3568
+Rheem_rm_devicesInstalled{Monthly},2,3200,2386,4015,0.0,0.0,0.4981,0.6100,0.4008
+Rheem_rm_devicetypeCount{Monthly},1,2390,2390,2390,0.0,0.0,0.4184,0.2872,0.3273
+Rheem_rm_rheemSystems,1,2420,2420,2420,0.0,0.0,0.4132,0.9612,0.3212
+Rheem_rm_connectivityBrkDwn,1,3201,3201,3201,0.0,0.0,0.3124,0.2145,0.2462
+Rheem_rm_devicelocationBreakDown{Monthly},1,3287,3287,3287,0.0,0.0,0.3042,1.1625,0.2490
+Rheem_rm_userFeedback,1,3388,3388,3388,0.0,0.0,0.2952,0.1781,0.2116
+Rheem_rm_connectivityBrkDwn{Monthly},1,3601,3601,3601,0.0,0.0,0.2777,0.1906,0.2189
+Rheem_rm_devicelocationBreakDown,1,3798,3798,3798,0.0,0.0,0.2633,1.0213,0.2157
+Rheem_rm_rheemSystems{Monthly},1,3895,3895,3895,0.0,0.0,0.2567,0.5920,0.1993
+Rheem_rm_subscription_plans,1,3937,3937,3937,0.0,0.0,0.2540,1.9201,0.1858
+Home_Cont,1,42693,42693,42693,0.0,0.0,0.2483,7.0023,2.8948
+Rheem_rm_techSupport(Search_product_type),1,8563,8563,8563,0.0,0.0,0.1168,1.7396,0.1146
+Rheem_rm_techSupport(Search),1,919,919,919,0.0,0.0,1.0881,1.3836,1.0010
+Customer_Device_Database_Cont,1,9482,9482,9482,0.0,0.0,0.1054,1.7042,0.2004
+Logout,1,261,261,261,0.0,0.0,3.8314,1.9494,2.3348
+Logout_Cont,1,261,261,261,0.0,0.0,1.7794,0.9053,1.0843
+TOTAL,26,4564,261,42693,0.0,0.0,1.2391,6.7344,1.5637
+
