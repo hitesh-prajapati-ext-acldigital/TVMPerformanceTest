@@ -8,18 +8,19 @@
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Contractor_Full_Flow">
-        <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
-        <stringProp name="ThreadGroup.ramp_time">${__P(rampup,1)}</stringProp>
-        <longProp name="ThreadGroup.duration">21600</longProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,20)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${__P(rampup,40)}</stringProp>
+        <longProp name="ThreadGroup.duration">3600</longProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
-          <stringProp name="LoopController.loops">1</stringProp>
+          <intProp name="LoopController.loops">-1</intProp>
           <boolProp name="LoopController.continue_forever">false</boolProp>
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Content-Type</stringProp>
@@ -40,12 +41,12 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="env_host" elementType="Argument">
               <stringProp name="Argument.name">env_host</stringProp>
-              <stringProp name="Argument.value">${__P(env_host,rheem-ia-staging-cluster.clearblade.com)}</stringProp>
+              <stringProp name="Argument.value">${__P(env_host,rheem-ia-prod.clearblade.com)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="system_key" elementType="Argument">
               <stringProp name="Argument.name">system_key</stringProp>
-              <stringProp name="Argument.value">${__P(system_key,c285a0df0c84e287fd9aedc48eee01)}</stringProp>
+              <stringProp name="Argument.value">${__P(system_key,f2f1fbc70cacd998c5a7e4e0a79501)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="user_token" elementType="Argument">
@@ -221,7 +222,7 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="User_Profile Cont">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="User_Profile Cont" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
@@ -801,20 +802,20 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Device_Details_Cont">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Device_Details_Cont" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <com.blazemeter.jmeter.controller.ParallelSampler guiclass="com.blazemeter.jmeter.controller.ParallelControllerGui" testclass="com.blazemeter.jmeter.controller.ParallelSampler" testname="bzm - Device_Details_Cont">
+          <com.blazemeter.jmeter.controller.ParallelSampler guiclass="com.blazemeter.jmeter.controller.ParallelControllerGui" testclass="com.blazemeter.jmeter.controller.ParallelSampler" testname="bzm - Device_Details_Cont" enabled="true">
             <intProp name="MAX_THREAD_NUMBER">6</intProp>
             <boolProp name="PARENT_SAMPLE">false</boolProp>
             <boolProp name="LIMIT_MAX_THREAD_NUMBER">false</boolProp>
           </com.blazemeter.jmeter.controller.ParallelSampler>
           <hashTree>
-            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Device Details"/>
+            <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Device Details" enabled="true"/>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
-                <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/Device_Details staging.csv</stringProp>
+                <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/Device_Details.csv</stringProp>
                 <stringProp name="fileEncoding"></stringProp>
                 <stringProp name="variableNames"></stringProp>
                 <boolProp name="ignoreFirstLine">true</boolProp>
@@ -825,7 +826,7 @@
                 <stringProp name="shareMode">shareMode.thread</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_deviceAlertsList ">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_deviceAlertsList " enabled="true">
                 <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_deviceAlertsList</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -1702,8 +1703,8 @@
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="System Details" enabled="true"/>
           <hashTree>
-            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
-              <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/System_Page pre_staging.csv</stringProp>
+            <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+              <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/System_Page.csv</stringProp>
               <stringProp name="fileEncoding"></stringProp>
               <stringProp name="variableNames"></stringProp>
               <boolProp name="ignoreFirstLine">false</boolProp>
@@ -1782,7 +1783,7 @@
                     <stringProp name="Argument.value">{&#xd;
     &quot;name&quot;: &quot;rheem_rm_handleSystems.deviceList&quot;,&#xd;
     &quot;body&quot;: {&#xd;
-        &quot;mac_address&quot;: &quot;${macAddress}&quot;,&#xd;
+        &quot;mac_address&quot;: &quot;${mac_add}&quot;,&#xd;
         &quot;orgIds&quot;: []&#xd;
     }&#xd;
 }</stringProp>
@@ -1878,7 +1879,7 @@
               </ConstantTimer>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_systemwidgets{widgetread}">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_systemwidgets{widgetread}" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_systemwidgets</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2000,7 +2001,7 @@
                     <stringProp name="Argument.value">{&#xd;
     &quot;name&quot;: &quot;rheem_rm_handleSystems.alertList&quot;,&#xd;
     &quot;body&quot;: {&#xd;
-        &quot;mac_address&quot;: &quot;${macAddress}&quot;&#xd;
+        &quot;mac_address&quot;: &quot;${mac_add}&quot;&#xd;
     }&#xd;
 }</stringProp>
                     <stringProp name="Argument.metadata">=</stringProp>
@@ -2056,7 +2057,7 @@
             <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Schedule" enabled="true"/>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
-                <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/System_Page pre_staging.csv</stringProp>
+                <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/System_Page.csv</stringProp>
                 <stringProp name="fileEncoding"></stringProp>
                 <stringProp name="variableNames"></stringProp>
                 <boolProp name="ignoreFirstLine">false</boolProp>
@@ -2437,7 +2438,7 @@
                 <stringProp name="ConstantTimer.delay">1000</stringProp>
               </ConstantTimer>
               <hashTree/>
-              <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+              <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
                 <doubleProp>
                   <name>throughput</name>
                   <value>300.0</value>
@@ -2506,7 +2507,7 @@
                 <stringProp name="ConstantTimer.delay">1000</stringProp>
               </ConstantTimer>
               <hashTree/>
-              <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+              <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
                 <doubleProp>
                   <name>throughput</name>
                   <value>300.0</value>
@@ -2659,7 +2660,7 @@
         <hashTree>
           <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Find_my_device" enabled="true"/>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_findMyDevices">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_findMyDevices" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_findMyDevices</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2681,7 +2682,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">Content-Type</stringProp>
@@ -2711,13 +2712,13 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Home_Owner_Management_Cont">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Home_Owner_Management_Cont" enabled="true">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Home_Owner_Report"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Home_Owner_Report" enabled="true"/>
           <hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_homeOwner">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_homeOwner" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_homeOwner</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2739,7 +2740,7 @@
               </elementProp>
             </HTTPSamplerProxy>
             <hashTree>
-              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+              <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                 <collectionProp name="HeaderManager.headers">
                   <elementProp name="" elementType="Header">
                     <stringProp name="Header.name">Content-Type</stringProp>
@@ -2756,7 +2757,7 @@
                 </collectionProp>
               </HeaderManager>
               <hashTree/>
-              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
                 <collectionProp name="Asserion.test_strings">
                   <stringProp name="49586">200</stringProp>
                 </collectionProp>
@@ -2767,7 +2768,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_customerDetails{dashboardOverview}">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_customerDetails{dashboardOverview}" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_customerDetails</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2780,7 +2781,7 @@
                     <stringProp name="Argument.value">{&#xd;
     &quot;body&quot;: {&#xd;
         &quot;org_id&quot;: &quot;2a6c58de-82bb-4b9e-a12c-a4359144c2f2&quot;,&#xd;
-        &quot;customer_id&quot;: &quot;576080766239627&quot;&#xd;
+        &quot;customer_id&quot;: &quot;9858674516774759&quot;&#xd;
     },&#xd;
     &quot;name&quot;: &quot;rheem_rm_customerDetails.dashboardOverview&quot;&#xd;
 }</stringProp>
@@ -2818,7 +2819,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_customerDetails{deviceAlertHistory}">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_customerDetails{deviceAlertHistory}" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_customerDetails</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2831,7 +2832,7 @@
                     <stringProp name="Argument.value">{&#xd;
     &quot;body&quot;: {&#xd;
         &quot;org_id&quot;: &quot;2a6c58de-82bb-4b9e-a12c-a4359144c2f2&quot;,&#xd;
-        &quot;customer_id&quot;: &quot;576080766239627&quot;&#xd;
+        &quot;customer_id&quot;: &quot;9858674516774759&quot;&#xd;
     },&#xd;
     &quot;name&quot;: &quot;rheem_rm_customerDetails.deviceAlertHistory&quot;&#xd;
 }</stringProp>
@@ -2869,7 +2870,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_alert_notification">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_alert_notification" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_alert_notification</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2919,7 +2920,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_deviceSchedule">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_deviceSchedule" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_deviceSchedule</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -2931,8 +2932,8 @@
                     <boolProp name="HTTPArgument.always_encode">false</boolProp>
                     <stringProp name="Argument.value">{&#xd;
     &quot;body&quot;: {&#xd;
-        &quot;assetId&quot;: &quot;SL-HP-WH-G4-77-91_S518704397&quot;,&#xd;
-        &quot;productType&quot;: &quot;heatpumpWaterHeaterGen4&quot;&#xd;
+        &quot;assetId&quot;: &quot;B4-8C-9D-EE-E8-C3_04-1e-16-06-2c-2c-2c-33-01&quot;,&#xd;
+        &quot;productType&quot;: &quot;hotspringWaterHeater&quot;&#xd;
     },&#xd;
     &quot;name&quot;: &quot;rheem_rm_deviceSchedule.get&quot;&#xd;
 }</stringProp>
@@ -2970,7 +2971,7 @@
               </ResponseAssertion>
               <hashTree/>
             </hashTree>
-            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_healthcheck">
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_healthcheck" enabled="true">
               <stringProp name="HTTPSampler.path">/api/v/4/webhook/execute/${system_key}/rheem_rm_healthcheck</stringProp>
               <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
               <stringProp name="HTTPSampler.method">GET</stringProp>
@@ -3011,17 +3012,17 @@
             </hashTree>
           </hashTree>
         </hashTree>
-        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Distributor_Access_Cont">
+        <TransactionController guiclass="TransactionControllerGui" testclass="TransactionController" testname="Distributor_Access_Cont" enabled="false">
           <boolProp name="TransactionController.includeTimers">false</boolProp>
         </TransactionController>
         <hashTree>
-          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Distributor Access"/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="Distributor Access" enabled="false"/>
           <hashTree>
-            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller">
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="false">
               <stringProp name="LoopController.loops">2</stringProp>
             </LoopController>
             <hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_contractorDistributorAccess{updateAccess}">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_contractorDistributorAccess{updateAccess}" enabled="false">
                 <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_contractorDistributorAccess</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -3047,7 +3048,7 @@
                 </elementProp>
               </HTTPSamplerProxy>
               <hashTree>
-                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager">
+                <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
                   <collectionProp name="HeaderManager.headers">
                     <elementProp name="" elementType="Header">
                       <stringProp name="Header.name">Content-Type</stringProp>
@@ -3064,11 +3065,11 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
-                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer">
+                <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">300</stringProp>
                 </ConstantTimer>
                 <hashTree/>
-                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion">
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
                   <collectionProp name="Asserion.test_strings">
                     <stringProp name="49586">200</stringProp>
                   </collectionProp>
@@ -3079,7 +3080,7 @@
                 </ResponseAssertion>
                 <hashTree/>
               </hashTree>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_contractorDistributorAccess{readDistributors}">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Rheem_rm_contractorDistributorAccess{readDistributors}" enabled="false">
                 <stringProp name="HTTPSampler.path">/api/v/1/code/${system_key}/rheem_rm_contractorDistributorAccess</stringProp>
                 <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
                 <stringProp name="HTTPSampler.method">POST</stringProp>
@@ -3131,7 +3132,7 @@
               </hashTree>
             </hashTree>
           </hashTree>
-          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config">
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="false">
             <stringProp name="filename">/home/chiranjibi/Desktop/Performance/Data/Distributor_Access_staging.csv</stringProp>
             <stringProp name="fileEncoding"></stringProp>
             <stringProp name="variableNames"></stringProp>
@@ -3196,7 +3197,7 @@
           </hashTree>
         </hashTree>
       </hashTree>
-      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="false">
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -3233,7 +3234,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="false">
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -3270,7 +3271,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="false">
+      <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="Aggregate Report" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -3307,7 +3308,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="false">
+      <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Aggregate Graph" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -3344,7 +3345,7 @@
         <stringProp name="filename"></stringProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="false">
+      <ResultCollector guiclass="RespTimeGraphVisualizer" testclass="ResultCollector" testname="Response Time Graph" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
@@ -3384,7 +3385,7 @@
         <intProp name="RespTimeGraph.lineshapepoint">1</intProp>
       </ResultCollector>
       <hashTree/>
-      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="false">
+      <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
