@@ -1,5 +1,5 @@
 JMeter Summary Report,,,,
-Label,#Samples,Average,Error%,RPS(Sec)
+API,#Samples,Average,Error%,Throput
 User_Profile_Cont,1143,3206,0,0.31
 User_Management_Cont,1130,1415,0,0.31
 Settings_Cont,1129,1446,0,0.31
