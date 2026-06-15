@@ -1,0 +1,49 @@
+Label,# Samples,Average,Error %,Throughput
+Login,2123,1420,0.094%,0.58954
+Get_User_info,2121,344,0.141%,0.58941
+Login_cont,2121,1764,0.141%,0.58918
+Rheem_rm_manageUsers,2121,382,0.141%,0.5894
+Rheem_rm_subscription_plans,4239,318,0.118%,1.17814
+User_Profile Cont,2120,702,0.142%,0.58914
+Rheem_rm_deviceAlertsList,2119,398,0.094%,0.58944
+Rheem_rm_alert_notification,6347,951,0.095%,1.76253
+Rheem_rm_userFeedback,2119,343,0.094%,0.58944
+Rheem_rheem_getAppPreferences,2119,348,0.094%,0.58944
+Rheem_rm_alertsOverview ,2119,281,0.094%,0.58945
+Rheem_rm_deviceAlertsList(Lat_Long),2119,3529,0.094%,0.58904
+Device _ Management_Cont,2119,6001,0.142%,0.58865
+Rheem_rm_deviceAlertsList ,2117,964,0.094%,0.58957
+Rheem_rm_product_info,4230,592,0.095%,1.17826
+Rheem_rm_product_info_read,2117,272,0.094%,0.58968
+Rheem_rm_deviceTemperatureDetails,4230,319,0.118%,1.17823
+Rheem_rm_bidirectionaldisable,2117,319,0.094%,0.58967
+Rheem_rm_stream_get_bidirectional_session,2117,266,0.142%,0.58968
+Rheem_rm_remoteAccessHistory,2117,322,0.094%,0.58967
+Rheem_rm_deviceNotes,4230,395,0.118%,1.17823
+Rheem_rm_deviceAlerts,2117,1699,0.142%,0.58967
+Rheem_rm_deviceLocationContactOverview,2117,409,0.094%,0.58971
+Rheem_rm_deviceHealthStatus,4230,663,0.118%,1.17832
+Rheem_rm_deviceAlertsList(LatestAlerts),2117,445,0.094%,0.5897
+Device_Details_Cont,2117,6871,0.283%,0.58879
+Rheem_rm_handleSystems,4226,564,0.095%,1.1819
+Rheem_rm_systemwidgets{getweather},2113,357,0.095%,0.59124
+Rheem_rm_systemwidgets{widgetread},2113,308,0.142%,0.59125
+System_Page_Cont,2113,3103,0.189%,0.5908
+Rheem_rm_deviceSchedule,4220,1119,0.190%,1.17838
+Rheem_rm_detailswarrantyOverview,2113,320,0.142%,0.59132
+Rheem_rm_systemwidgets{read},2113,298,0.142%,0.59133
+Scheduling_Page_Cont,2113,2984,0.189%,0.59082
+Rheem_rm_myRheem,2113,934,0.095%,0.59124
+User_Management_Cont,2113,934,0.095%,0.59124
+Rheem_rm_remoteAccessSessions,2113,784,0.189%,0.59124
+Remote_Sessions_Cont,2113,784,0.189%,0.59124
+Rheem_rm_userSettings,2113,349,0.095%,0.59125
+Settings_Cont,2113,349,0.095%,0.59125
+Rheem_rm_findMyDevices,2113,3146,0.095%,0.59084
+Find_my_device_Cont,2113,3146,0.095%,0.59084
+Rheem_rm_homeOwner,2113,2308,0.142%,0.5931
+Rheem_rm_customerDetails{dashboardOverview},2112,498,0.331%,0.59342
+Rheem_rm_customerDetails{deviceAlertHistory},2111,618,0.095%,0.59332
+Rheem_rm_healthcheck,2106,1359,0.095%,0.59221
+Home_Owner_Management_Cont,2106,7197,0.570%,0.59121
+TOTAL,118455,1208,0.133%,32.85649
